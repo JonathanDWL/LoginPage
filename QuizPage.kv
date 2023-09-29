@@ -1,0 +1,79 @@
+<QuizManager>
+    Question1Screen:
+        name: "question1"
+    Question2Screen:
+        name: "question2"
+    CorrectScreen:
+        name: "correct"
+    ErrorScreen:
+        name: "error"
+
+<Question1Screen>
+    BoxLayout:
+        orientation: "vertical"
+        padding: 10
+        spacing: 10
+        Label:
+            text: "What is the state fruit of Texas?"
+            size_hint: 1, 0.5
+        BoxLayout:
+            orientation: "horizontal"
+            spacing: 10
+            Button:
+                text: "Peach"
+                color: 0.96, 0.71, 0.64
+                background_color: 0.96, 0.71, 0.64
+                on_press: root.answerquestion(False)
+            Button:
+                text: "Grapefruit"
+                color: 0.96, 0.61, 0.49
+                background_color: 0.96, 0.61, 0.49
+                on_press: root.answerquestion(True)
+            Button:
+                text: "Orange"
+                color: 0.95, 0.77, 0.51
+                background_color: 0.95, 0.77, 0.51
+                on_press: root.answerquestion(False)
+
+<CorrectScreen>
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "YUH HUH!"
+            font_size: "50sp"
+            size_hint: 1, 2
+            color: 0.5, 1, 0.5
+        Button:
+            text: "Next"
+            color: 0.5, 1, 0.5
+            background_color: 0.5, 1, 0.5
+            on_press: root.press()
+
+<ErrorScreen>
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "NUH UH!"
+            font_size: "50sp"
+            size_hint: 1, 2
+            color: 1, 0.5, 0.5
+        Button:
+            text: "Next"
+            color: 1, 0.5, 0.5
+            background_color: 1, 0.5, 0.5
+            on_press: root.press()
+
+<Question2Screen>
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "Complete the following verse: \n\n'The stars at night are big and bright, _________'"
+        BoxLayout:
+            orientation: "horizontal"
+            TextInput:
+                id: heart
+                hint_text: "Enter remaining verse"
+            Button:
+                text: "Enter"
+                size_hint: 0.5, 1
+                on_release: root.answerquestion(heart.text)
