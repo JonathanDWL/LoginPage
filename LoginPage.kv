@@ -1,0 +1,50 @@
+<LoginManager>
+    MainScreen:
+        name: "main"
+
+
+<MainScreen>
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "SillyButton.com"
+            font_size: "50sp"
+            size_hint: 1, 1.5
+        BoxLayout:
+            orientation: "horizontal"
+            Label:
+                text: "New to Silly Button?\nTry our in-depth\ntutorials!"
+                color: 0.5, 0.5, 0.5
+            StackLayout:
+                size_hint: 1.5, 1
+                Label:
+                    text: "Username"
+                    size_hint: 0.5, 0.20
+                TextInput:
+                    id: username
+                    size_hint: 0.5, 0.20
+                Label:
+                    text: "Password"
+                    size_hint: 0.5, 0.20
+                TextInput:
+                    id: password
+                    size_hint: 0.5, 0.20
+                Label:
+                    text: ""
+                    size_hint: 1, 0.20
+                Button:
+                    text: "Enter"
+                    size_hint: 1, 0.20
+                    color: 0.5, 1, 0.5
+                    background_color: 0.5, 1, 0.5
+                Button:
+                    text: "Register new account"
+                    size_hint: 1, 0.20
+                    color: 1, 0.5, 0.5
+                    background_color: 0, 0, 0
+            Label:
+                text: "Silly Button has\nover 5 million users\nacross the world!"
+                color: 0.5, 0.5, 0.5
+        Label:
+            text: ""
+            size_hint: 1, 1.5
