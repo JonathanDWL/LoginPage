@@ -1,7 +1,10 @@
 <LoginManager>
     MainScreen:
         name: "main"
-
+    RegisterScreen:
+        name: "register"
+    SillyScreen:
+        name: "silly"
 
 <MainScreen>
     BoxLayout:
@@ -22,29 +25,135 @@
                     size_hint: 0.5, 0.20
                 TextInput:
                     id: username
+                    text: ""
                     size_hint: 0.5, 0.20
                 Label:
                     text: "Password"
                     size_hint: 0.5, 0.20
                 TextInput:
                     id: password
+                    text: ""
                     size_hint: 0.5, 0.20
                 Label:
+                    id: issue
                     text: ""
+                    color: (1, 0.5, 0.5)
                     size_hint: 1, 0.20
                 Button:
                     text: "Enter"
                     size_hint: 1, 0.20
                     color: 0.5, 1, 0.5
                     background_color: 0.5, 1, 0.5
+                    on_press: root.login(username.text, password.text)
                 Button:
                     text: "Register new account"
                     size_hint: 1, 0.20
                     color: 1, 0.5, 0.5
                     background_color: 0, 0, 0
+                    on_press: root.register()
             Label:
                 text: "Silly Button has\nover 5 million users\nacross the world!"
                 color: 0.5, 0.5, 0.5
         Label:
             text: ""
             size_hint: 1, 1.5
+
+<RegisterScreen>
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "Register for SillyButton.com"
+            font_size: "50sp"
+            size_hint: 1, 1.5
+        BoxLayout:
+            orientation: "horizontal"
+            Label:
+                text: ""
+            StackLayout:
+                size_hint: 1.5, 1
+                Label:
+                    text: "Username"
+                    size_hint: 0.5, 0.20
+                TextInput:
+                    id: usernamereg
+                    text: ""
+                    size_hint: 0.5, 0.20
+                Label:
+                    text: "Password"
+                    size_hint: 0.5, 0.20
+                TextInput:
+                    id: passwordreg
+                    text: ""
+                    size_hint: 0.5, 0.20
+                Label:
+                    text: "Reenter Password"
+                    size_hint: 0.5, 0.20
+                TextInput:
+                    id: passwordreg2
+                    text: ""
+                    size_hint: 0.5, 0.20
+                Label:
+                    id: unique
+                    text: ""
+                    size_hint: 1, 0.20
+                    color: (1, 0.5, 0.5)
+                Button:
+                    text: "Enter"
+                    size_hint: 1, 0.20
+                    color: 0.5, 1, 0.5
+                    background_color: 0.5, 1, 0.5
+                    on_press: root.register(usernamereg.text, passwordreg.text, passwordreg2.text)
+            Label:
+                text: ""
+        BoxLayout:
+            size_hint: 1, 1.5
+            orientation: "vertical"
+            Label:
+                text: ""
+                size_hint: 1, 2
+            Label:
+                id: capital
+                text: "Password must contain at least one capital letter"
+                color: 0.5, 0.5, 0.5
+            Label:
+                id: lowercase
+                text: "Password must contain at least one lowercase letter"
+                color: 0.5, 0.5, 0.5
+            Label:
+                id: number
+                text: "Password must contain at least one number"
+                color: 0.5, 0.5, 0.5
+            Label:
+                id: character
+                text: "Password must contain at least one special character"
+                color: 0.5, 0.5, 0.5
+            Label:
+                id: eight
+                text: "Password must be at least eight characters long"
+                color: 0.5, 0.5, 0.5
+            Label:
+                id: spaceless
+                text: "Password must not contain spaces"
+                color: 0.5, 0.5, 0.5
+            Label:
+                id: match
+                text: "Both passwords entered must match"
+                color: 0.5, 0.5, 0.5
+            Label:
+                text: ""
+                size_hint: 1, 2
+
+<SillyScreen>
+    Button:
+        text: "Log out"
+        pos_hint: {"right": 1, "top": 1}
+        size_hint: 0.15, 0.15
+        on_press: root.logout()
+    #Button:
+        #id: sillybutton
+        #text: "Silly Button"
+        #pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        #size_hint: 0.15, 0.15
+        #color: 1, 0.5, 0.5
+        #background_color: 1, 0.5, 0.5
+        #on_release: root.silly()
