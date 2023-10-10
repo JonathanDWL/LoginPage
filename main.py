@@ -102,14 +102,9 @@ class RegisterScreen(Screen):
             self.manager.current = "main"
 
 class SillyScreen(Screen):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        silliness = Button(text="Silly Button", pos_hint={"center_x": 0.5, "center_y": 0.5}, size_hint=(0.15, 0.15), color=[1, 0.5, 0.5, 1.0], background_color=[1, 0.5, 0.5, 1.0])
-        self.add_widget(silliness)
     def logout(self):
         self.manager.current = "main"
     def silly(self):
-        self.ids.sillybutton.pos_hint = {"center_x": random.uniform(0.2, 0.8), "center_y": random.uniform(0.2, 0.8)}
         self.ids.sillybutton.color = colors[(colors.index(self.ids.sillybutton.color)+1)%6]
         self.ids.sillybutton.background_color = colors[(colors.index(self.ids.sillybutton.background_color)+1)%6]
 
